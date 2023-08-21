@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nav.css'%}">
+	<!-- Navbar -->
+	<style>
+		.navbar2{
+			background: linear-gradient(to right, #DC143C, #87c);
+		}
+		.nav-link2{
+			color: white !important;
+			font-family:'Shinb7';
+			font-size: 30px;
+		}
+	</style>
+	<nav class="navbar2 navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav2">
+			<ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+					<a class="nav-link2" href="{% url 'talent:index' %}">전체</a>
+				</li>
+				{% for categorys_obj in categorys %}
+				<li class="nav-item">
+					<a class="nav-link2" href="{% url 'talent:category' category_id=categorys_obj.id %}">{{categorys_obj.category}}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</nav>
